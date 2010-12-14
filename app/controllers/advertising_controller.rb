@@ -27,9 +27,12 @@ class AdvertisingController < ApplicationController
     end
     ads.sort! { |a,b| a.rand <=> b.rand }
 
-    ads.first.link = make_link ads.first
-
-    render :json => ads.first.to_json
+    if not ads.empty?
+      ads.first.link = make_link ads.first
+      render :json => ads.first.to_json
+    else
+      render :text => "{}"
+    end
   end
 
   def click
@@ -101,8 +104,11 @@ class AdvertisingController < ApplicationController
       ad.rand = 1.0 / (ctr * ad.click_cost * rand(1000000000))
     end
     ads.sort! { |a,b| a.rand <=> b.rand }
-    ads.first.rand = 0.0
-    stat_ad_view ads.first.ad_id
+
+    if not ads.empty?
+      ads.first.rand = 0.0
+      stat_ad_view ads.first.ad_id
+    end
 
     @ads = ads
 
