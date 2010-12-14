@@ -338,10 +338,13 @@ div.Container div.AdPreview div.PreviewHeader p { margin:0 0 0 30px; font-size:2
 
 div.Container div.AdPreview div.PreviewContent { margin:15px 0 0 0; vertical-align:middle; text-align:center; height:auto;  }
 
+#AdPreviewDescription { font-weight:normal; }
+
+
 /* AdFooter */
 
 div.Container div.AdFooter { width:1024px; margin-left:auto; margin-right:auto;
-                               margin-top:0; height:auto;
+                               margin-top:0; height:77px;
                                background:white; display:block; }
 
 div.Container div.AdFooter div { width:auto; height:auto; float:right; margin:15px;}

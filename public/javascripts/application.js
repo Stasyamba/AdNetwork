@@ -184,6 +184,8 @@ $(window).load(function(){
     });
 
 
+    //AD - SPECIFIC
+
 
     //Ad ajax + controlling
 
@@ -365,27 +367,69 @@ $(window).load(function(){
 
     //Different ad type support
 
+    function recalculate_preview_height(){
+        $(".AdPreview").height($(".PreviewHeader").height() + $(".PreviewContent").height() + 55);
+    }
+
     function set_ad_type_banner()
     {
         $(".ImageUpload").removeClass("TextGraph");
         $(".ImageUpload").addClass("Banner");
+
+        $("#AdPreviewName").hide();
+        $("#AdPreviewDescription").hide();
+
+//        $(".PreviewContent img").removeAttr("width");
+//        $(".PreviewContent img").removeAttr("height");
+
+        recalculate_preview_height();
     }
 
     function set_ad_type_textgraph()
     {
         $(".ImageUpload").removeClass("Banner");
         $(".ImageUpload").addClass("TextGraph");
+
+        $("#AdPreviewName").show();
+        $("#AdPreviewDescription").show();
+
+//        $(".PreviewContent img").attr("width", 100);
+//        $(".PreviewContent img").attr("height", 150);
+
+        recalculate_preview_height();
     }
 
     $("#ad_ad_type_0").change(function(){
-       alert("Banner!")
+       //alert("Banner!")
        set_ad_type_banner();
     });
-
     $("#ad_ad_type_1").change(function(){
-       alert("TextGraph!")
+       //alert("TextGraph!")
        set_ad_type_textgraph();
     });
+    if ($("input[@name='ad_ad_type']:checked").val() == "0"){
+        set_ad_type_banner();
+    } else {
+        set_ad_type_textgraph();
+    }
+
+
+    $("#ad_name").keydown(function(){
+        $("#AdPreviewName").html($(this).val());
+        recalculate_preview_height();
+    }).change(function(){
+        $("#AdPreviewName").html($(this).val());
+        recalculate_preview_height();
+    });
+    $("#ad_description").keydown(function(){
+        $("#AdPreviewDescription").html($(this).val());
+        recalculate_preview_height();
+    }).change(function(){
+        $("#AdPreviewDescription").html($(this).val());
+        recalculate_preview_height();
+    });
+    $("#ad_name").change();
+    $("#ad_description").change();
 
 
     //Image uploading
@@ -403,7 +447,10 @@ $(window).load(function(){
         $("#upload_image_field").val($("#upload_image").val());
     });
 
-
+    $("#image_tag").load(function(){
+        recalculate_preview_height();
+    });
+    
     $("#image_upload_form").ajaxForm({
        dataType:"json",
        success:function(msg){
