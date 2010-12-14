@@ -15,6 +15,9 @@ class Ad < ActiveRecord::Base
   validates_presence_of :link
   validates_numericality_of :click_cost
 
+  validates_format_of :link, :with => 
+/^(http|https):\/\/[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(([0-9]{1,5})?\/.*)?$/ix
+
   belongs_to :campaign
   has_many :statistic_entries
   has_and_belongs_to_many :cities
@@ -49,37 +52,41 @@ class Ad < ActiveRecord::Base
 
     ActiveRecord::Base.transaction do
 
-      AdDynamic.delete_all
-      Ad.where(["status = ?", Ad::STATUS_RUNNING]).each do |ad|
+      AdDynamic.delete_all(["ad_id = ?", self.id])
 
-        if (ad.cities.empty? && ad.platforms.empty?)
+      ad = self
+      if ad.status == Ad::STATUS_RUNNING
+
+        cities = ad.cities.to_a
+        platforms = ad.platforms.to_a
+
+        if (cities.empty? && platforms.empty?)
           dyn = create_dynamic ad, Ad::ANY_CITY, Ad::ANY_PLATFORM
           dyn.save
         end
 
-        if (ad.cities.empty? && !ad.platforms.empty?)
-          ad.platforms.each do |p|
+        if (cities.empty? && !platforms.empty?)
+          platforms.each do |p|
             dyn = create_dynamic ad, Ad::ANY_CITY, p.id
             dyn.save
           end
         end
 
-        if (!ad.cities.empty? && ad.platforms.empty?)
-          ad.cities.each do |c|
+        if (!cities.empty? && platforms.empty?)
+          cities.each do |c|
             dyn = create_dynamic ad, c.id, Ad::ANY_PLATFORM
             dyn.save
           end
         end
 
-        if (!ad.cities.empty? && !ad.platforms.empty?)
-          ad.cities.each { |c|
-            ad.platforms.each { |p|
+        if (!cities.empty? && !platforms.empty?)
+          cities.each { |c|
+            platforms.each { |p|
               dyn = create_dynamic ad, c.id, p.id
               dyn.save
             }
           }
         end
-
       end
 
     end
