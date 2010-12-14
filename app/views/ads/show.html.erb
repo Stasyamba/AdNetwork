@@ -81,7 +81,7 @@
                 </tr>
                 <tr>
                   <td width="40%"><p>CTR</p></td>
-                  <td width="60%"><p><%= @ad.clicks / @ad.views if @ad.views != 0  %></p></td>
+                  <td width="60%"><p><%= ctr_percent(1.0 * @ad.clicks / @ad.views) if @ad.views != 0  %></p></td>
                 </tr>
               </tbody>
             </table>

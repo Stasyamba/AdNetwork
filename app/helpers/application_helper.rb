@@ -36,5 +36,9 @@ module ApplicationHelper
     end
   end
 
+  def ctr_percent ctr
+    format("%.4f%", ctr * 100.0)
+  end
+
 
 end

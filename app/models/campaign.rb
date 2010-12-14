@@ -23,6 +23,6 @@ class Campaign < ActiveRecord::Base
         self.views = self.views + a.views
         self.expenses = self.expenses + a.expenses
       end
-      self.ctr = self.clicks / self.views if self.views != 0
+      self.ctr = 1.0 * self.clicks / self.views if self.views != 0
   end
 end

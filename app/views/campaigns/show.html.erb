@@ -166,7 +166,7 @@
       </div>
       <div class="LCol3_part">
         <div>
-          <p><%= ad.clicks / ad.views if ad.views != 0 %></p>
+          <p><%= ctr_percent(1.0 * ad.clicks / ad.views) if ad.views != 0 %></p>
         </div>
       </div>
       <div class="LCol24">
