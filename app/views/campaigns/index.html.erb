@@ -1,0 +1,103 @@
+
+<%= render :partial => "menu" %>
+
+<div class="Container">
+  
+    <%= render :partial => "messages" %>
+
+
+    <div class="ListHeader">
+      <div class="Col1">
+        <div>
+            <p>Кампания</p>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Статус</p>
+        </div>
+      </div>
+      <div class="Col3">
+        <div>
+          <table>
+            <tbody>
+                <tr>
+                  <td colspan="3"><p>Статистика за сегодня</p></td>
+                </tr>
+                <tr>
+                  <td width="100"><p>Показы</p></td>
+                  <td width="100"><p>Переходы</p></td>
+                  <td width="100"><p>CTR</p></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Расход</p>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Балланс</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ListRowEnd">
+      
+    </div>
+
+    <% @campaigns.each do |campaign| %>
+
+    <div class="ListRow">
+      <div class="LCol1">
+        <div>
+          <p><%= link_to campaign.name, campaign_path(campaign.id) %></p>
+        </div>
+      </div>
+      <div class="LCol24">
+        <div>
+          <p><%= campaign_status campaign.status %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= campaign.views %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= campaign.clicks %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= campaign.ctr %></p>
+        </div>
+      </div>
+      <div class="LCol24">
+        <div>
+          <p><%= campaign.expenses %></p>
+        </div>
+      </div>
+      <div class="LCol5">
+        <div>
+          <p><%= campaign.balance %></p>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+    <div class="ListRowEnd">
+
+    </div>
+
+    <div class="CreateCampaign">
+      <div>
+        <p><%= link_to "Создать кампанию и привлечь посетителей на сайт", new_campaign_path %></p>
+      </div>
+    </div>
+</div>

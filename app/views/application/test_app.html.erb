@@ -1,0 +1,35 @@
+<div class="LoginArea">
+<% if flash[:error] %>
+  <div class="LoginArea ErrorMessage">
+    
+  </div>
+<% end %>
+<%= form_tag :action => "get_ads_details" do %>
+
+    <%= label_tag :age, "Возраст" %><br />
+    <%= select_tag :age, options_for_select((10..70).to_a.map{|e|[e,e]}) %><br />
+
+    <%= label_tag :sex, "Пол" %><br />
+    <%= select_tag :sex, options_for_select([["Женский", Ad::SEX_FEMALE], ["Мужской", Ad::SEX_MALE]]) %><br />
+
+    <%= label_tag :city_id, "Город" %><br />  
+    <%= select_tag :country_select,
+                   options_for_select(Country.all.map {|c| [c.name, c.id]}),
+                   :include_blank => true %>
+    <%= select_tag :city_id,
+                   "",
+                   :include_blank => true,
+                   :id => "city_select"%> <br />
+
+    <%= label_tag :platform_id, "Платформа" %><br />
+    <%= select_tag :platform_id,
+                   options_for_select(Platform.all.map {|p| [p.name, p.id]}),
+                   :include_blank => true %><br />
+
+    <%= label_tag :type, "Тип" %><br />
+    <%= select_tag :type, options_for_select([["Баннер", Ad::TYPE_BANNER], ["ТГ", Ad::TYPE_TEXT_GRAPH]]) %><br />
+
+    <%= submit_tag "Получить" %>
+      
+<% end %>
+</div>

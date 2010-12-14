@@ -1,0 +1,7 @@
+
+<span id="cities_prepared" style="display:none;">
+<%= (ad_cities.map { |c| "<p><span style=\"display:none;\">#{c.id}</span>#{c.name} <a href=\"#\">(удалить)</a></p>" } ).join("\n").html_safe %>
+</span>
+<span id="platforms_prepared" style="display:none;">
+<%= (ad_platforms.map { |p| "<p><span style=\"display:none;\">#{p.id}</span>#{p.name} <a href=\"#\">(удалить)</a></p>" } ).join("\n").html_safe %>
+</span>

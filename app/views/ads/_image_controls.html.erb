@@ -1,0 +1,28 @@
+    <div class="ImageUpload Banner">
+      <div>
+         <div>
+           <label class="BigInput">Загрузите изображение: </label>
+         </div>
+         <div>
+           <%= form_tag({:controller => "ajax", :action => "upload_image"}, {:id => "image_upload_form", :multipart => true}) do %>
+             <%= hidden_field_tag :image_type, ad.ad_type, :id => "image_type" %>
+             <%= file_field_tag :image, :id => "upload_image", :class => "HiddenFile" %>
+             <%= text_field_tag :image_name, nil, :id => "upload_image_field", :class => "BigInput Longer" %>
+           <% end %>
+         </div>
+         <div>
+          <a class="BlueButton" href="#" id="UploadImage"><span>Загрузить</span></a>
+         </div>
+      </div>
+    </div>
+
+    <div class="AdPreview">
+      <div class="PreviewHeader">
+        <p>Предпросмотр:</p>
+      </div>
+      <div class="PreviewContent">
+        <p>Hello</p>
+        <img src="<%= ad.image_url %>" alt="" id="image_tag" />
+        <p>Описание</p>
+      </div>
+    </div>

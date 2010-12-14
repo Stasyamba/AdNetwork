@@ -1,0 +1,71 @@
+                <tr>
+                  <td width="40%"><%= f.label :name, "Название:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_area :name, :class => "BigInput", :cols => 23, :rows => 2 %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :description, "Описание:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_area :description, :class => "BigInput", :cols => 23, :rows => 4 %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :link, "Ссылка:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_field :link, :class => "BigInput" %></td>
+                </tr>
+                 <tr>
+                  <td width="40%"><%= f.label :ad_type, "Тип:", :class =>"BigInput" %></td>
+                  <td width="60%">
+                    <%= f.radio_button :ad_type, Ad::TYPE_BANNER, :class => "BigInput" %> <%= ad_type Ad::TYPE_BANNER %>
+                    <%= f.radio_button :ad_type, Ad::TYPE_TEXT_GRAPH, :class => "BigInput" %> <%= ad_type Ad::TYPE_TEXT_GRAPH %>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :sex, "Предпочитаемый пол:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= select_sex f, :sex %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :min_age, "Минимальный возраст:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= select_age f, :min_age, Ad::AGE_MIN %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :max_age, "Максимальный&nbsp;возраст:".html_safe, :class =>"BigInput" %></td>
+                  <td width="60%"><%= select_age f, :max_age, Ad::AGE_MAX %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :cities, "Города:", :class =>"BigInput" %></td>
+                  <td width="60%" id="cities_container">
+                    <%= f.hidden_field :cities, :value => (ad_cities.map { |e| e.id }).join(",") %>
+                    <p id="any_city">
+                      Любой город
+                    </p>
+
+                    <%= select_tag :country_select,
+                                   options_for_select(Country.all.map {|c| [c.name, c.id]}),
+                                   :include_blank => true,
+                                   :class => "NotBigInput" %>
+                    <%= select_tag :city_select,
+                                   "",
+                                   :include_blank => true,
+                                   :class => "NotBigInput" %>
+                    
+                    <a class="Add" href="#" id="add_city_link">Добавить</a>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :platforms, "Платформы:", :class =>"BigInput" %></td>
+                  <td width="60%" id="platforms_container" >
+                    <%= f.hidden_field :platforms, :value => (ad_platforms.map { |e| e.id }).join(",") %>
+                    <p id="all_platforms">
+                      Все платформы
+                    </p>
+                    <%= select_tag :platform_select,
+                                   options_for_select(Platform.all.map {|p| [p.name, p.id]}),
+                                   :include_blank => true,
+                                   :class => "NotBigInput" %>
+                    <a class="Add" href="#" id="add_platform_link" >Добавить</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :click_cost, "Цена за клик:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_field :click_cost, :class => "NotBigInput" %> руб.</td>
+                </tr>
+                <%= f.hidden_field :image_url %>

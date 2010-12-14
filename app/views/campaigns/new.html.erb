@@ -1,0 +1,20 @@
+
+<%= render :partial => "menu" %>
+
+<div class="Container">
+    <%= render :partial => "messages"%>
+    <div>
+      <%= form_for @campaign, :url => campaigns_path, :html => {:class => "CreateCampaignForm"} do |f| %>
+      <table class="CreateCampaign">
+        <tr>
+          <td class="Left"><%= f.label :name, "Название кампании", :class => "BigInput" %></td>
+          <td><%= f.text_field :name, :class => "BigInput" %></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><%= f.submit "Создать", :class => "BigInputButton" %></td>
+        </tr>
+      </table>
+      <% end  %>
+    </div>
+</div>

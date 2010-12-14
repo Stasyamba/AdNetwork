@@ -1,0 +1,196 @@
+<%= render :partial => "campaigns/menu" %>
+
+<!--<div id="DecreaseBudgetBox">-->
+   <!--fgfdg-->
+<!--</div>-->
+
+<span id="campaign_id" style="display:none;"><%= @campaign.id %></span>
+
+
+<div class="Container">
+  
+    <%= render :partial => "campaigns/messages" %>
+
+    <div class="Path">
+      <div class="Element">
+        <div>
+          <p><%= link_to "Рекламные кампании", campaigns_path, :class => "Big" %></p>
+        </div>
+      </div>
+      <div class="Separator">
+        <div>
+          <img src="/images/PathSeparator.png" />
+        </div>
+      </div>
+      <div class="Element">
+        <div>
+          <p><%= @campaign_name %></p>
+        </div>
+      </div>
+      <div class="BalanceContainer">
+        <div>
+          <p>Баланс: <span id="campaign_balance"><%= @campaign.balance %></span> руб.&nbsp;</p>
+          <a href="#" id="budget_increase"><img src="/images/Increase.png" alt="Увеличить"></a>
+          <a href="#" id="budget_decrease"><img href="#" src="/images/Decrease.png" alt="Уменьшить"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="CampaignInfo">
+      <div class="StatisticsHeader">
+        <p>Статистика кампании за сегодня:</p>
+      </div>
+      <div class="LeftColumn">
+        <div>
+            <%= form_for @campaign, campaigns_path, :method => "put" do |f| %>
+            <table>
+              <tbody>
+                <tr>
+                  <td width="40%"><%= f.label :status, "Статус:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= select_campaign_status f, @campaign.status %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :name, "Название:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_area :name, :class => "BigInput", :cols => 23, :rows => 4 %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :limit, "Лимит:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_field :limit, :class => "BigInput", :disabled => true, :size => 15 %></td>
+                </tr>
+                <tr>
+                  <td width="40%"><%= f.label :day_limit, "Дневной лимит:", :class =>"BigInput" %></td>
+                  <td width="60%"><%= f.text_field :day_limit, :class => "BigInput", :disabled => true, :size => 15 %></td>
+                </tr>
+                 <tr>
+                  <td width="40%"></td>
+                  <td width="60%"><a class="GreenButton" href="#" id="UpdateCampaignButton"><span>Сохранить</span></a></td>
+                </tr>
+              </tbody>
+            </table>
+            <% end %>
+        </div>
+      </div>
+      <div class="RightColumn">
+        <div>
+            <table>
+              <tbody>
+                <tr>
+                  <td width="40%"><p>Показы</p></td>
+                  <td width="60%"><p><%= @campaign.views %></p></td>
+                </tr>
+                <tr>
+                  <td width="40%"><p>Переходы</p></td>
+                  <td width="60%"><p><%= @campaign.clicks  %></p></td>
+                </tr>
+                <tr>
+                  <td width="40%"><p>Расход</p></td>
+                  <td width="60%"><p><%= @campaign.expenses  %> руб.</p></td>
+                </tr>
+                <tr>
+                  <td width="40%"><p>CTR</p></td>
+                  <td width="60%"><p><%= @campaign.ctr  %></p></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Begin Ads List -->
+
+    <div class="AdListHeader">
+      <div class="Col1">
+        <div>
+            <p>Объявление</p>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Статус</p>
+        </div>
+      </div>
+      <div class="Col3">
+        <div>
+          <table>
+            <tbody>
+                <tr>
+                  <td colspan="3"><p>Статистика за сегодня</p></td>
+                </tr>
+                <tr>
+                  <td width="100"><p>Показы</p></td>
+                  <td width="100"><p>Переходы</p></td>
+                  <td width="100"><p>CTR</p></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Расход</p>
+        </div>
+      </div>
+      <div class="Col245">
+        <div>
+            <p>Тип</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ListRowEnd">
+
+    </div>
+
+    <% @campaign.fresh_ads.each do |ad| %>
+
+    <div class="ListRow">
+      <div class="LCol1">
+        <div>
+          <p><%= link_to ad.name, campaign_ad_path(@campaign.id, ad.id) %></p>
+        </div>
+      </div>
+      <div class="LCol24">
+        <div>
+          <p><%= ad_status ad.status %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= ad.views %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= ad.clicks %></p>
+        </div>
+      </div>
+      <div class="LCol3_part">
+        <div>
+          <p><%= ad.clicks / ad.views if ad.views != 0 %></p>
+        </div>
+      </div>
+      <div class="LCol24">
+        <div>
+          <p><%= ad.expenses %></p>
+        </div>
+      </div>
+      <div class="LCol5">
+        <div>
+          <p><%= ad_type(ad.ad_type) %></p>
+        </div>
+      </div>
+    </div>
+
+    <% end %>
+
+    <div class="ListRowEnd">
+
+    </div>
+
+    <div class="CreateAd">
+      <div>
+        <p><%= link_to "Создать объявление", new_campaign_ad_path(@campaign.id) %></p>
+      </div>
+    </div>
+    <!--<textarea rows="5" cols="30" class="BigInput"></textarea>-->
+</div>

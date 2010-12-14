@@ -1,0 +1,24 @@
+  <% if flash.now[:error_msg] %>
+    <div class="ErrorMessage" id="error_message_static">
+      <div>
+        <p><%= flash.now[:error_msg] %></p>
+      </div>
+    </div>
+  <% end %>
+  <% if flash.now[:notice_msg] %>
+    <div class="NoticeMessage" id="notice_message_static">
+      <div>
+        <p><%= flash.now[:notice_msg] %></p>
+      </div>
+    </div>
+  <% end %>
+    <div class="ErrorMessage" id="error_message">
+      <div>
+        <p></p>
+      </div>
+    </div>
+    <div class="NoticeMessage" id="notice_message">
+      <div>
+        <p></p>
+      </div>
+    </div>

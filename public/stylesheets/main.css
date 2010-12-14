@@ -1,0 +1,395 @@
+html { height: 100%; width: 100%; }
+body { width: 100%; min-width: 1024px; height: 100%; margin: 0; padding: 0;
+  font: 16px Myriad Pro,Verdana,Lucida,Arial,Helvetica,sans-serif; color: #332318; }
+p, td, ul, ol, li, dl, dt, dd {
+  font-family: Myriad Pro,sans-serif; font-weight:bold; }
+
+.LoginArea { background-color:white; }
+.LoginArea  form { width:300px; margin-left:auto; margin-right:auto; }
+.LoginArea .ErrorMessage { width:300px; margin-left:auto; margin-right:auto; color:#ffa07a; }
+
+/* Header */
+
+.Header { width:100%; height:151px;  background-image:url("/images/HeaderBackground.png"); }
+
+.Header .Content { width:1024px; margin-left:auto; margin-right:auto; display:block;  background-image:none; }
+.Header .Content .Logo { width:547px;  background-image:url("/images/MechanicalBear.png"); float:left; }
+.Header .Content .Navigation { width:477px; float:left; }
+
+.Header .Content .Navigation .Buttons { width:100%; height:83px; display:block; }
+.Header .Content .Navigation .Buttons .AdvertiserLink { width:203px; float:left; }
+.Header .Content .Navigation .Buttons .AdvertiserLink img { border:none; }
+.Header .Content .Navigation .Buttons .WebmasterLink { width:187px; float:left; }
+.Header .Content .Navigation .Buttons .WebmasterLink img { border:none; }
+
+.Header .Content .Navigation .BalanceInfo { width:100%; height:68px;  display:block; vertical-align:middle;
+                                            background-image:none; padding-left:200px}
+
+/*.Header .Content .Navigation .BalanceInfo img { border:none; width:43px; height:43px; float:left;*/
+                                                 }
+.Header .Content .Navigation .BalanceInfo p { float: left; vertical-align:middle; }
+
+/* Menu */
+
+#Menu { width:100%; height:50px; background-color:#12ABDF; }
+#Menu div { width:1024px; margin-left:auto; margin-right:auto; display:block; }
+#Menu div div { width:200px; height:38px; float:left; margin:6px; text-align:center; color:white;
+                font-size:14px; display:table-cell; font-weight:normal; }
+#Menu div div.Entered {  background-color:#0D8CB8; }
+#Menu div div p { font-weight:normal;}
+#Menu div div p a { text-decoration:underline; color:white; font-weight:normal; }
+
+/*#menuItemContainer { position:relative }*/
+/*#menuItemInnerContainer { position:absolute; top:50%; height:10em; margin-top:-5em }*/
+
+/*#Menu div div div { margin:0; position:absolute; top:50%; height:10px; margin-top:-5px }*/
+/*#Menu div div div p a { text-decoration:none; color:white; }*/
+
+/* Common */
+
+div.Container { width:100%; height:100%; background-color:white; }
+div.Container div { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto; }
+
+#error_message { display:none; }
+#notice_message { display:none; }
+
+div.Container div.ErrorMessage { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                background-color:#FFEEE2; min-height:60px; text-align:center; border: 1px solid red;
+                font-size:20px; display:block; }
+div.Container div.ErrorMessage div {display:table-cell; width:1024px; height: 100%; text-align:center; }
+div.Container div.ErrorMessage div p { font-weight:bold; color:#e9967a; }
+
+div.Container div.ErrorMessage div p a { text-decoration:underline; color:#C59877; font-weight:bold; font-style:italic; }
+
+
+div.Container div.NoticeMessage { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                background-color:#8fc879; min-height:60px; text-align:center; border: 1px solid green;
+                font-size:20px; display:block; }
+div.Container div.NoticeMessage div {display:table-cell; width:1024px; height: 100%; text-align:center; }
+div.Container div.NoticeMessage div p { font-weight:bold; color:black; }
+}
+div.Container div.NoticeMessage div p a { text-decoration:underline; color:black; font-weight:bold; font-style:italic; }
+
+
+label.BigInput { margin:5px; font-size:16px; font-weight:normal; color:#333D40 }
+input.BigInput { margin:5px; border:1px solid silver;
+                 background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));
+                 font-size:16px; font-weight:normal;  padding:4px; }
+input.NotBigInput { margin:5px; border:1px solid silver;
+                 background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));
+                 font-size:16px; font-weight:normal;  padding:4px; width:100px; }
+/*input.BigInputButton { margin:5px; border:1px solid silver;*/
+                       /*background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));*/
+                       /*font-size:20px; padding:4px;  }*/
+/*intput.BigInputButton:active { margin:5px; border:1px solid silver;*/
+                               /*background-color:#DEDEDE;*/
+                               /*background:-webkit-gradient(linear, left bottom, left top, from(#fff), to(rgb(222, 222, 222)));*/
+                               /*font-size:20px; padding:4px;  } */
+
+
+select.BigInput { margin:5px; border:1px solid silver;
+                  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));
+                  font-size:16px; font-weight:normal;   padding:4px; width:200px}
+select.NotBigInput { margin:5px; border:1px solid silver;
+                  background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));
+                  font-size:14px; font-weight:normal;   padding:3px; width:110px}
+textarea.BigInput { margin:5px; border:1px solid silver;
+                    background:-webkit-gradient(linear, left top, left bottom, from(#fff), to(rgb(222, 222, 222)));
+                    font-size:16px; font-weight:normal;  padding:4px; }
+
+
+/* Path menu */
+
+div.Container div.Path {    width:1024px; margin-top:30px;
+                            margin-left:auto; margin-right:auto;
+                            background-color:white;
+                            min-height:50px;
+                            height:auto; text-align:center;
+                            display:block; }
+
+div.Container div.Path div.Element { max-width:275px;  margin:0; height:auto; float:left; }
+div.Container div.Path div.Element div {  display:table-cell; height: auto; width:auto; text-align:left;
+                                          vertical-align:middle; }
+div.Container div.Path div.Element div p { font-weight:normal; color:#333D40; font-size:14px; text-decoration:none; }
+div.Container div.Path div.Element div p.Big { font-weight:normal; color:#333D40; font-size:20px; text-decoration:none; }
+
+div.Container div.Path div.Element div p a { font-weight:normal; color:#6574B6; font-size:14px; text-decoration:underline; }
+div.Container div.Path div.Element div p a.Big { font-weight:normal; color:#6574B6; font-size:20px; text-decoration:underline; }
+
+div.Container div.Path div.Separator { width:60px; margin:0; float:left; }
+div.Container div.Path div.Separator div {  display:table-cell; height: 100%; text-align:center; 
+                                          padding-left:20px; padding-right:10px; width:60px; vertical-align:middle; }
+
+div.Container div.Path div.BalanceContainer { width:325px; height:51px;  float:none;
+                                     background-color:#FFA15D; position:relative; top:0; left:659px;
+                                     margin:10px; margin-left:30px; margin-right:0; display:block;}
+
+div.Container div.Path div.BalanceContainer div { display:block; float:left; height: 51px; text-align:left;
+                                                  vertical-align:middle; margin:0; width:auto;
+                                                  position:absolute; top:0; left:0;
+                                                  padding-left:20px;}
+
+div.Container div.Path div.BalanceContainer div p {  float:left;
+                                                     font-weight:bold; color:white; font-size:17px; text-decoration:none;
+                                                     }
+
+div.Container div.Path div.BalanceContainer div img{ border:0; margin:6px; margin-right:0; margin-left:0; }
+
+
+/* Table row */
+
+div.Container div.ListRow { width:1024px; margin-top:0;
+                            margin-left:auto; margin-right:auto;
+                            background-color:white;
+                            /*min-height:50px;*/
+                            height:auto; text-align:center;
+                            display:block; }
+
+div.Container div.ListRow div.LCol1 { margin:0; width:273px; height:auto; float:left;
+                                        border:none; border-right:1px solid silver; }
+div.Container div.ListRow div.LCol1 div { display:table-cell; width:273px; height: 100%; text-align:left;
+                                          padding-left:30px; padding-right:30px; vertical-align:middle; }
+div.Container div.ListRow div.LCol1 div p a { font-weight:normal; color:#6574B6; font-size:14px; text-decoration:underline; }
+
+div.Container div.ListRow div.LCol24 { margin:0; width:149px; height:inherit; float:left;
+                                          border:none; border-right:1px solid silver; }
+div.Container div.ListRow div.LCol24 div { display:table-cell; width:273px; height: 100%; text-align:center;
+                                            vertical-align:middle; }
+div.Container div.ListRow div.LCol24 div p { font-weight:normal; color:#333D40; font-size:12px; }
+
+/*div.Container div.ListRow div.LCol3 { margin:0; width:299px; height: 80px; float:left;*/
+                                        /*border:none; border-right:1px solid silver; }*/
+
+div.Container div.ListRow div.LCol3_part { margin:0; width:99px; height:inherit; float:left;
+                                        border:none; border-right:1px solid silver; }
+div.Container div.ListRow div.LCol3_part div { display:table-cell; width:99px; height: 100%; text-align:center;
+                                            vertical-align:middle; }
+div.Container div.ListRow div.LCol3_part div p { font-weight:normal; color:#333D40; font-size:12px; }
+
+
+div.Container div.ListRow div.LCol5 { margin:0; width:150px; height:inherit; float:left;
+                                          border:none;  }
+div.Container div.ListRow div.LCol5 div { display:table-cell; width:150px; height: 100%; text-align:center;
+                                            vertical-align:middle; }
+div.Container div.ListRow div.LCol5 div p { font-weight:normal; color:#333D40; font-size:12px; }
+
+div.Container div.ListRowEnd { width:1024px; margin-top:0;
+                            margin-left:auto; margin-right:auto;
+                            background-color:silver; height:1px; display:block; }
+
+/* Campaigns */
+
+
+div.Container div.CreateCampaign { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                background-color:#FFEEE2; height:70px; text-align:center;
+                font-size:20px; display:block; }
+div.Container div.CreateCampaign div {display:table-cell; width:1024px; height: 100%; text-align:center; }
+div.Container div.CreateCampaign div p { font-weight:bold; }
+div.Container div.CreateCampaign div p a { text-decoration:underline; color:#C59877; font-weight:bold; font-style:italic; }
+
+table.CreateCampaign {width:640px; border:none; display:table; }
+
+table.CreateCampaign tbody tr td.Left { text-align:right; }
+/*table.CreateCampaign tbody tr td div.field_with_errors { width:100%; height:100%; margin:0; }*/
+
+.field_with_errors { width:100%; height:100%; margin:0; }
+
+/* Campaigns table header */
+
+div.Container div.ListHeader { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                               background-color:#E9E9E9;
+                               background:-webkit-gradient(linear, left top, left bottom, from(rgb(244,244,244)), to(rgb(213, 213, 213)));
+                               height:70px; text-align:center;
+                               font-size:20px; display:block; }
+
+div.Container div.ListHeader div.Col1 { margin:0; width:274px; float:left; }
+div.Container div.ListHeader div.Col1 div {display:table-cell; width:274px; height: 100%; text-align:left; padding-left:30px; }
+div.Container div.ListHeader div.Col1 div p { font-weight:normal; color:#366674; font-size:18px; }
+
+div.Container div.ListHeader div.Col245 { margin:0; width:150px; float:left; }
+div.Container div.ListHeader div.Col245 div {display:table-cell; width:150px; height: 100%; }
+div.Container div.ListHeader div.Col245 div p { font-weight:normal; color:#366674; font-size:18px; }
+
+div.Container div.ListHeader div.Col3 { margin:0; width:300px; height: 70px; float:left; }
+div.Container div.ListHeader div.Col3 div { display:table-cell; width:300px; height: 70px; vertical-align:middle; }
+div.Container div.ListHeader div.Col3 div table { width:300px; height:100%; display:table; padding:0; border-spacing:0; }
+div.Container div.ListHeader div.Col3 div table tbody tr { padding:0; vertical-align:middle; }
+div.Container div.ListHeader div.Col3 div table tbody tr td { padding:0; vertical-align:middle; padding-top:10px; }
+div.Container div.ListHeader div.Col3 div table tbody tr td p { width:100%; height:25px; margin:0;
+                                                                font-weight:normal; color:#366674; font-size:14px;}
+
+/* END Campaigns table header */
+
+div.Container div.CampaignInfo { width:1024px; margin-left:auto; margin-right:auto;
+                               margin-top:0;
+                               background-color:white; height:430px; display:block; }
+
+
+div.Container div.CampaignInfo div.StatisticsHeader { position:relative; float:none; top:0; left:630px;
+                                                      margin:0; height:40px; width:354px; text-align:center; vertical-align:middle;}
+
+div.Container div.CampaignInfo div.StatisticsHeader p { position:absolute; float:left;
+                                                        font-size:16px; font-weight:normal; color:#333D40;
+                                                        margin:10px 0 0 55px;}
+
+
+div.Container div.CampaignInfo div.LeftColumn { margin-top:0; width:600px; height:390px;
+                                                background-color:#F2F2F2; float:left; }
+div.Container div.CampaignInfo div.RightColumn { margin-top:0; margin-left:30px; width: 394px; height:390px;
+                                                 background-color:#F2F2F2; float:left; }
+
+div.Container div.CampaignInfo div.LeftColumn div { margin:20px; width:560px; height:350px; }
+div.Container div.CampaignInfo div.RightColumn div { margin:20px; width:354px; height:350px; }
+
+div.Container div.CampaignInfo div.LeftColumn div table { margin:0; width:560px; display:table; border-spacing:0; }
+div.Container div.CampaignInfo div.RightColumn div table { margin:0; width:354px; display:table; border-spacing:0; }
+
+div.Container div.CampaignInfo div.LeftColumn div table tbody tr td { padding:10px; vertical-align:middle; }
+div.Container div.CampaignInfo div.LeftColumn div table tbody tr td div.field_with_errors
+                                                        {  width:100%; height:100%; margin:0; }
+
+div.Container div.CampaignInfo div.LeftColumn div table tbody tr td div.field_with_errors label
+                                                        {  color:red }
+
+div.Container div.CampaignInfo div.RightColumn div table tbody tr td { padding:10px; vertical-align:middle; }
+div.Container div.CampaignInfo div.RightColumn div table tbody tr td p { margin:10px;
+                                                                         font-size:16px; font-weight:normal; color:#333D40; }
+
+/* Campaigns AD List */
+
+div.Container div.AdListHeader { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                               background-color:#659C6B;
+                               background:-webkit-gradient(linear, left top, left bottom, from(rgb(199,217,190)), to(rgb(100, 156, 106)));
+                               height:70px; text-align:center;
+                               font-size:20px; display:block; }
+
+div.Container div.AdListHeader div.Col1 { margin:0; width:274px; float:left; }
+div.Container div.AdListHeader div.Col1 div {display:table-cell; width:274px; height: 100%; text-align:left; padding-left:30px; }
+div.Container div.AdListHeader div.Col1 div p { font-weight:normal; color:white; font-size:18px; }
+
+div.Container div.AdListHeader div.Col245 { margin:0; width:150px; float:left; }
+div.Container div.AdListHeader div.Col245 div {display:table-cell; width:150px; height: 100%; }
+div.Container div.AdListHeader div.Col245 div p { font-weight:normal; color:white; font-size:18px; }
+
+div.Container div.AdListHeader div.Col3 { margin:0; width:300px; height: 70px; float:left; }
+div.Container div.AdListHeader div.Col3 div { display:table-cell; width:300px; height: 70px; vertical-align:middle; }
+div.Container div.AdListHeader div.Col3 div table { width:300px; height:100%; display:table; padding:0; border-spacing:0; }
+div.Container div.AdListHeader div.Col3 div table tbody tr { padding:0; vertical-align:middle; }
+div.Container div.AdListHeader div.Col3 div table tbody tr td { padding:0; vertical-align:middle; padding-top:10px; }
+div.Container div.AdListHeader div.Col3 div table tbody tr td p { width:100%; height:25px; margin:0;
+                                                                font-weight:normal; color:white; font-size:14px;}
+
+div.Container div.CreateAd { margin-top:30px; width:1024px; margin-left:auto; margin-right:auto;
+                background-color:#E2FFE2; height:70px; text-align:center;
+                font-size:20px; display:block; }
+div.Container div.CreateAd div {display:table-cell; width:1024px; height: 100%; text-align:center; }
+div.Container div.CreateAd div p { font-weight:bold; }
+div.Container div.CreateAd div p a { text-decoration:underline; color:#7EA384; font-weight:bold; font-style:italic; }
+
+#BudgetBox { width: 450px; height:215px; display:block; background:white;  text-align:center; }
+                     /*position:fixed; top:300px; left: 300px;}*/
+
+#BudgetBox p.Header { font-weight:normal;background:white; color:#6574B6; font-size:22px; text-decoration:none;
+                              height:auto; margin:1em 0 0 0;}
+#BudgetBox p.Attention { font-weight:normal;background:white; color:#C0C0C0; font-size:14px; text-decoration:none;
+                                 height:auto; margin: 0 0 0 0;}
+
+#BudgetBox p.Roubles { font-weight:normal;background:white; color:#333D40; font-size:20px; text-decoration:none;
+                                 height:auto; margin: 1em 0 0 0;}
+
+#BudgetBox p.Button { font-weight:normal; background:white; color:#333D40; font-size:20px; text-decoration:none;
+                              margin:0 0 0 160px;
+                                height:auto; text-align:center;}
+#BudgetBox p.AttentionDown { font-weight:normal;background:white; color:#C0C0C0; font-size:14px; text-decoration:none;
+                                 height:auto; margin: 65px 0 0 0;}
+
+/* END Campaigns */
+
+
+/* BEGIN Ads */
+
+div.Container div.ImageUpload { width:1016px; margin-left:auto; margin-right:auto;
+                               margin-top:0; display:block;
+                               background-color:#D3D8DF; height:120px; display:block; padding:0 8px 0 0;
+                               }
+
+.Banner { background:url("/images/AdTypeBanner.png") no-repeat right; background-origin:content-box; }
+.TextGraph {  }
+
+div.Container div.ImageUpload div { vertical-align:middle; height:120px; margin:0; display:table-cell;
+                                    text-align:left; padding:0 0 0 30px;  }
+
+div.Container div.ImageUpload div div { padding:0; width:auto;}
+
+
+
+input.HiddenFile { position:absolute; opacity:0; z-index:2; width:270px; height:35px; }
+.Longer { width:255px; }
+
+
+/* AdPreview */
+
+div.Container div.AdPreview { width:1024px; margin-left:auto; margin-right:auto;
+                               margin-top:0; height:160px;
+                               background:#F2F2F2; display:block;  }
+
+div.Container div.AdPreview div.PreviewHeader { margin:0; height:auto; padding-top:15px; }
+div.Container div.AdPreview div.PreviewHeader p { margin:0 0 0 30px; font-size:24px; font-weight:bold; color:#ACACAC; }
+
+div.Container div.AdPreview div.PreviewContent { margin:15px 0 0 0; vertical-align:middle; text-align:center; height:auto;  }
+
+/* AdFooter */
+
+div.Container div.AdFooter { width:1024px; margin-left:auto; margin-right:auto;
+                               margin-top:0; height:auto;
+                               background:white; display:block; }
+
+div.Container div.AdFooter div { width:auto; height:auto; float:right; margin:15px;}
+
+
+/* AdInfo */
+
+div.Container div.AdInfo { width:1024px; margin-left:auto; margin-right:auto;
+                               margin-top:0;
+                               background-color:#F2F2F2; height:830px; display:block; }
+
+
+
+
+div.Container div.AdInfo div.LeftColumn { margin-top:0; width:650px; height:830px;
+                                                background-color:#F2F2F2; float:left; }
+
+div.Container div.AdInfo div.RightColumn { margin:30px; width: 314px; height:260px;
+                                                 background-color:#E4E4E4; float:left; }
+
+div.Container div.AdInfo div.LeftColumn div { margin:20px; width:610px; height:790px;
+                                              font-size:16px; font-weight:normal; color:#333D40;}
+
+div.Container div.AdInfo div.RightColumn div { margin:20px; width:354px; height:220px; }
+
+div.Container div.AdInfo div.LeftColumn div table { margin:0; width:560px; display:table; border-spacing:0;
+                                                    font-size:16px; font-weight:normal; color:#333D40}
+div.Container div.AdInfo div.RightColumn div table { margin:0; width:354px; display:table; border-spacing:0; }
+
+div.Container div.AdInfo div.LeftColumn div table tbody tr td { padding:10px; vertical-align:middle;
+                                                                font-size:16px; font-weight:normal; color:#333D40}
+
+div.Container div.AdInfo div.LeftColumn div table tbody tr td p { margin:10px;
+                                                                         font-size:14px; font-weight:normal; color:#333D40; }
+div.Container div.AdInfo div.LeftColumn div table tbody tr td p a {
+                                                                         font-size:14px; font-weight:normal; color:#fa8072; }
+div.Container div.AdInfo div.LeftColumn div table tbody tr td a.Add {
+                                                                         font-size:14px; font-weight:normal; color:#4169e1; }
+
+div.Container div.AdInfo div.LeftColumn div table tbody tr td div.field_with_errors
+                                                        {  width:100%; height:100%; margin:0; }
+
+div.Container div.AdInfo div.LeftColumn div table tbody tr td div.field_with_errors label
+                                                        {  color:red }
+
+div.Container div.AdInfo div.RightColumn div table tbody tr td { padding:10px; vertical-align:middle; }
+div.Container div.AdInfo div.RightColumn div table tbody tr td p { margin:10px;
+                                                                         font-size:16px; font-weight:normal; color:#333D40; }
+
+
+

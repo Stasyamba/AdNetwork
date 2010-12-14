@@ -1,0 +1,15 @@
+
+<div class="LoginArea">
+<% if flash[:error] %>
+  <div class="LoginArea ErrorMessage">
+    <%= flash[:error] %>
+  </div>
+<% end %>
+<%= form_tag :action => "try_login", :method => :post do %>
+    <%= label_tag :login, "Логин" %><br />
+    <%= text_field_tag :login %><br />
+    <%= label_tag :password, "Пароль" %><br />
+    <%= password_field_tag :password %><br />
+    <%= submit_tag "Login" %>
+<% end %>
+</div>

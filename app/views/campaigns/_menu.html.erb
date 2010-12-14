@@ -1,0 +1,10 @@
+<div id="Menu">
+  <div>
+    <div class="Entered">
+        <p><%= link_to_unless(["campaigns", "ads"].any? {|e| e == controller_name}, "Рекламные кампании", campaigns_path)  %></p>
+    </div>
+    <div>
+        <p><%= link_to_unless "ads_statistics" == controller_name , "Статистика", "STATS LINK"  %></p>
+    </div>
+  </div>
+</div>

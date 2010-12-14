@@ -1,0 +1,72 @@
+
+
+
+/* Buttons */
+
+div.ButtonContainer { overflow: hidden; width: 100%; }
+
+a.GreenButton {
+    margin: 5px;
+    background: transparent url("/images/greenRBoth.png") no-repeat scroll bottom right;
+    color: #333D40;
+    display: block;
+    float: left;
+    font: normal 20px arial, sans-serif;
+    height: 37px;
+    /*margin-right: 20px;*/
+    padding-right: 19px; 
+    text-decoration: none;
+}
+
+a.GreenButton span {
+    background: transparent url('/images/greenLBoth.png') no-repeat bottom left;
+    display: block;
+    line-height: 37px;
+    padding: 0 0 0 19px;
+}
+
+a.GreenButton:active {
+    /*background: transparent url("/images/greenROver.png") no-repeat scroll top right;*/
+    background-position: top right;
+    color: black;
+    outline: none; /* Firefox */
+}
+
+a.GreenButton:active span {
+    /*background: transparent url('/images/greenLOver.png') no-repeat;*/
+    background-position: top left;
+    padding: 0 0 0 19px;
+}
+
+a.BlueButton {
+    margin: 5px;
+    background: transparent url("/images/blueRBoth.png") no-repeat scroll bottom right;
+    color: #333D40;
+    display: block;
+    float: left;
+    font: normal 20px arial, sans-serif;
+    height: 37px;
+    /*margin-right: 20px;*/
+    padding-right: 19px;
+    text-decoration: none;
+}
+
+a.BlueButton span {
+    background: transparent url('/images/blueLBoth.png') no-repeat bottom left;
+    display: block;
+    line-height: 37px;
+    padding: 0 0 0 19px;
+}
+
+a.BlueButton:active {
+    /*background: transparent url("/images/greenROver.png") no-repeat scroll top right;*/
+    background-position: top right;
+    color: black;
+    outline: none; /* Firefox */
+}
+
+a.BlueButton:active span {
+    /*background: transparent url('/images/greenLOver.png') no-repeat;*/
+    background-position: top left;
+    padding: 0 0 0 19px;
+}

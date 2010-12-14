@@ -1,0 +1,69 @@
+<%= render :partial => "campaigns/menu" %>
+
+<%= render :partial => "hidden_spans", :locals => {:ad_cities => @ad_cities, :ad_platforms => @ad_platforms} %>
+
+<div class="Container">
+
+<%= render :partial => "campaigns/messages" %>
+
+    <div class="Path">
+      <div class="Element">
+        <div>
+          <p><%= link_to "Рекламные кампании", campaigns_path, :class => "Big" %></p>
+        </div>
+      </div>
+      <div class="Separator">
+        <div>
+          <img src="/images/PathSeparator.png" />
+        </div>
+      </div>
+      <div class="Element">
+        <div>
+          <p><%= link_to @campaign.name, campaign_path(@campaign.id) %></p>
+        </div>
+      </div>
+      <div class="Separator">
+        <div>
+          <img src="/images/PathSeparator.png" />
+        </div>
+      </div>
+      <div class="Element">
+        <div>
+          <p><%= @ad_name %></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="AdInfo">
+
+      <div class="LeftColumn">
+        <div>
+            <%= form_for([@campaign, @ad], :method => "post", :html => {:id => "create_ad"}) do |f| %>
+            <table>
+              <tbody>
+
+                <%= render :partial => "common_options",
+                           :locals => {:f => f, :ad_cities => @ad_cities, :ad_platforms => @ad_platforms} %>
+
+
+                <!--<tr>-->
+                  <!--<td width="40%"></td>-->
+                  <!--<td width="60%"><a class="GreenButton" href="#" id="UpdateCampaignButton"><span>Сохранить</span></a></td>-->
+                <!--</tr>-->
+              </tbody>
+            </table>
+            <% end %>
+        </div>
+      </div>
+
+    </div>
+
+    <%= render :partial => "image_controls", :locals => {:ad => @ad} %>
+
+    <div class="AdFooter">
+      <div>
+        <a class="GreenButton" href="#" id="CreateAdButton"><span>Создать</span></a>
+      </div>
+    </div>
+
+</div>

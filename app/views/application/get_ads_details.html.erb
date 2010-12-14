@@ -1,0 +1,12 @@
+<div class="LoginArea">
+  <%= link_to "test_app", :action => "test_app" %><br />
+  <pre>
+  <% @ads.each do |ad| %>
+    Название: <%= ad.name %>
+    Цена за клик: <%= ad.click_cost %>
+    Ctr: <%= ad.ctr %>
+    Шанс показа: <%= ad.chance %>
+        
+  <% end %>
+  </pre>
+</div>
