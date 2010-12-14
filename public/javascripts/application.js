@@ -58,9 +58,9 @@ $(window).load(function(){
 
     function recalc_balance_div_width()
     {
-       $("div.Container div.BalanceContainer div").each(function(){
-         $(this).parent().css("left", 1024-$(this).width() - 60);
-         $(this).parent().width($(this).width() + 30);
+       $("div.Container div.Path div.BalanceContainer div").each(function(){
+         $(this).parent().css("left", 1024-$(this).width()-80);
+         $(this).parent().width($(this).width() + 50);
        });
     }
     recalc_balance_div_width();

@@ -2,7 +2,7 @@ require "digest/sha2"
 class AdvertisingController < ApplicationController
 
   LINK_VALID_PERIOD = 3600
-  CLICK_AGAIN_PERIOD = 15
+  CLICK_AGAIN_PERIOD = 60
 
   def get_ads
     type = params[:type].to_i

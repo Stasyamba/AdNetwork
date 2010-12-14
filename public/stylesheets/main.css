@@ -122,7 +122,7 @@ div.Container div.Path div.Separator div {  display:table-cell; height: 100%; te
 
 div.Container div.Path div.BalanceContainer { width:325px; height:51px;  float:none;
                                      background-color:#FFA15D; position:relative; top:0; left:659px;
-                                     margin:10px; margin-left:30px; margin-right:0; display:block;}
+                                     margin:10px; margin-left:30px; margin-right:30px; display:block;}
 
 div.Container div.Path div.BalanceContainer div { display:block; float:left; height: 51px; text-align:left;
                                                   vertical-align:middle; margin:0; width:auto;
