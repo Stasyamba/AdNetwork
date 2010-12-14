@@ -8,10 +8,10 @@ class CreateAds < ActiveRecord::Migration
       t.integer :sex, :default => 0
       t.integer :city, :default => 0
 
-      t.decimal :click_cost, :default => 1.0
+      t.decimal :click_cost, :precision => 18, :scale => 9, :default => 1.0
       t.integer :views, :default => 0
       t.integer :clicks, :default => 0
-      t.decimal :expenses, :default => 0.0
+      t.decimal :expenses, :precision => 18, :scale => 9, :default => 0.0
 
       t.integer :status, :default => 0
 

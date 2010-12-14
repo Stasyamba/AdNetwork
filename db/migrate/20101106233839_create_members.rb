@@ -7,7 +7,7 @@ class CreateMembers < ActiveRecord::Migration
 
       t.string :name
 
-      t.decimal :balance, :default => 0
+      t.decimal :balance, :precision => 18, :scale => 9, :default => 0
 
       t.timestamps
     end

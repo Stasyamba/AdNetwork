@@ -8,7 +8,7 @@ class CreateStatisticEntries < ActiveRecord::Migration
       t.integer :day
       t.integer :month
 
-      t.decimal :expenses
+      t.decimal :expenses, :precision => 18, :scale => 9
       t.integer :views
       t.integer :clicks
 

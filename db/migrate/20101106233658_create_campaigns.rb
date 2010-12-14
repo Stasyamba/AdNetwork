@@ -6,9 +6,9 @@ class CreateCampaigns < ActiveRecord::Migration
       t.string :name
       t.integer :status, :default => 0
 
-      t.decimal :balance, :default => 0.0
-      t.decimal :limit, :default => -1.0
-      t.decimal :day_limit, :default => -1.0
+      t.decimal :balance, :precision => 18, :scale => 9, :default => 0.0
+      t.decimal :limit, :precision => 18, :scale => 9, :default => -1.0
+      t.decimal :day_limit, :precision => 18, :scale => 9, :default => -1.0
 
       t.timestamps
     end

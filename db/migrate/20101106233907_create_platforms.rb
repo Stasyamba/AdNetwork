@@ -7,7 +7,7 @@ class CreatePlatforms < ActiveRecord::Migration
 
       t.integer :views, :default => 0
       t.integer :clicks, :default => 0
-      t.decimal :earnings, :default => 0.0
+      t.decimal :earnings, :precision => 18, :scale => 9, :default => 0.0
 
       t.timestamps
     end
