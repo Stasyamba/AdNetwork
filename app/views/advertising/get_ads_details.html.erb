@@ -2,11 +2,20 @@
   <%= link_to "test_app", :action => "test_app" %><br />
   <pre>
   <% @ads.each do |ad| %>
+
+    ID: <%= ad.ad_id %><%= "(Показалось)" if ad.rand == 0.0 %>
+
     Название: <%= ad.name %>
+    Описание: <%= ad.description %>
+    <img src="<%= ad.image_url %>" />
+    Ссылка: <a href="<%= ad.link  %>">клик</a>
+
     Цена за клик: <%= ad.click_cost %>
     Ctr: <%= ad.ctr %>
     Шанс показа: <%= ad.chance %>
-        
+
+    -----------------------------
+
   <% end %>
   </pre>
 </div>

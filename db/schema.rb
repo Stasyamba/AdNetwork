@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(:version => 20101207151356) do
 
   create_table "ad_dynamics", :id => false, :force => true do |t|
     t.integer "ad_id"
+    t.integer "campaign_id"
     t.integer "platform_id"
     t.integer "city_id"
     t.integer "sex"
@@ -22,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20101207151356) do
     t.integer "ad_type"
     t.string  "name"
     t.string  "description"
+    t.string  "image_url"
     t.string  "link"
     t.decimal "click_cost",  :precision => 18, :scale => 9
     t.integer "clicks"

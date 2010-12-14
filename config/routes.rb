@@ -3,10 +3,10 @@ AdNetwork::Application.routes.draw do
   match "/login" => 'application#login'
   match "/logout" => 'application#logout'
 
-  match "/click" => 'application#click'
-  match "/get_ads" => 'application#get_ads'
-  match "/get_ads_detail" => 'application#get_ads_detail'
-  match "/test_app" => 'application#test_app'
+  match "/click" => 'advertising#click'
+  match "/get_ads(.:format)" => 'advertising#get_ads'
+  match "/get_ads_detail" => 'advertising#get_ads_detail'
+  match "/test_app" => 'advertising#test_app'
 
 
   resources :campaigns do

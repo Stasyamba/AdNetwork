@@ -32,6 +32,7 @@ class Ad < ActiveRecord::Base
   def create_dynamic ad, city, platform
       d = AdDynamic.new
       d.ad_id = ad.id
+      d.campaign_id = ad.campaign_id
       d.city_id = city
       d.platform_id = platform
 
@@ -40,6 +41,7 @@ class Ad < ActiveRecord::Base
       d.ctr = 0.0015
       d.description = ad.description
       d.link = ad.link
+      d.image_url = ad.image_url
       d.name = ad.name
       d.max_age = ad.max_age
       d.min_age = ad.min_age

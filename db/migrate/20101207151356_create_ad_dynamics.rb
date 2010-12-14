@@ -2,6 +2,7 @@ class CreateAdDynamics < ActiveRecord::Migration
   def self.up
     create_table :ad_dynamics, :id => false do |t|
       t.integer :ad_id
+      t.integer :campaign_id
       t.integer :platform_id
       t.integer :city_id
       t.integer :sex
@@ -11,6 +12,7 @@ class CreateAdDynamics < ActiveRecord::Migration
 
       t.string :name
       t.string :description
+      t.string :image_url
       t.string :link
       t.decimal :click_cost, :precision => 18, :scale => 9
       t.integer :clicks

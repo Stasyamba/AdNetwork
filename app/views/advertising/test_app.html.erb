@@ -1,7 +1,7 @@
 <div class="LoginArea">
 <% if flash[:error] %>
   <div class="LoginArea ErrorMessage">
-    
+
   </div>
 <% end %>
 <%= form_tag :action => "get_ads_details" do %>
@@ -12,7 +12,7 @@
     <%= label_tag :sex, "Пол" %><br />
     <%= select_tag :sex, options_for_select([["Женский", Ad::SEX_FEMALE], ["Мужской", Ad::SEX_MALE]]) %><br />
 
-    <%= label_tag :city_id, "Город" %><br />  
+    <%= label_tag :city_id, "Город" %><br />
     <%= select_tag :country_select,
                    options_for_select(Country.all.map {|c| [c.name, c.id]}),
                    :include_blank => true %>
@@ -30,6 +30,6 @@
     <%= select_tag :type, options_for_select([["Баннер", Ad::TYPE_BANNER], ["ТГ", Ad::TYPE_TEXT_GRAPH]]) %><br />
 
     <%= submit_tag "Получить" %>
-      
+
 <% end %>
 </div>
