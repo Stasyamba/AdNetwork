@@ -51,6 +51,7 @@ class AdsController < ApplicationController
   end
 
   def create
+    
     @campaign = @campaign || Campaign.find(params[:campaign_id])
     if (@campaign.member_id != session[:member_id])
       redirect_to campaigns_url
@@ -60,16 +61,22 @@ class AdsController < ApplicationController
     @ad_name = "Новое объявление"
     @ad.campaign_id = @campaign.id
 
-    @ad_cities = @ad.cities = City.where(["id IN (?)", params[:ad][:cities].split(",")])
-    @ad_platforms = @ad.platforms = Platform.where(["id IN (?)", params[:ad][:platforms].split(",")])
+    ActiveRecord::Base.transaction do
+      @ad_cities = @ad.cities = City.where(["id IN (?)", params[:ad][:cities].split(",")])
+      @ad_platforms = @ad.platforms = Platform.where(["id IN (?)", params[:ad][:platforms].split(",")])
 
-    if @ad.save
-      flash.now[:notice_msg] = "Объявление создано"
-      index
-    else
-      flash.now[:error_msg] = "Объявление не создано"
-      render "new"
+      @ad.status = Ad::STATUS_AWAITING_STOPPED
+
+      if @ad.save
+        flash.now[:notice_msg] = "Объявление создано и отправлено на проверку"
+        index
+      else
+        flash.now[:error_msg] = "Объявление не создано"
+        render "new"
+        raise ActiveRecord::Rollback
+      end
     end
+    
   end
 
   def update
@@ -84,18 +91,42 @@ class AdsController < ApplicationController
     if (@ad.campaign_id != @campaign.id)
       redirect_to campaigns_url
     end
+    @ad_name = @ad.name
+    ActiveRecord::Base.transaction do
+      @ad_cities = @ad.cities = City.where(["id IN (?)", params[:ad][:cities].split(",")])
+      @ad_platforms = @ad.platforms = Platform.where(["id IN (?)", params[:ad][:platforms].split(",")])
 
-    @ad_cities = @ad.cities = City.where(["id IN (?)", params[:ad][:cities].split(",")])
-    @ad_platforms = @ad.platforms = Platform.where(["id IN (?)", params[:ad][:platforms].split(",")])
+      bad = false
+      need_check = false
 
-    if (@ad.update_attributes(params[:ad]))
-      @ad.status = params[:ad][:status]
-      @ad.save!
+      if (@ad.name != params[:ad][:name] or
+          @ad.ad_type.to_s != params[:ad][:ad_type] or
+          @ad.description != params[:ad][:description] or
+          @ad.link != params[:ad][:link] or
+          @ad.image_url != params[:ad][:image_url]
+      )
+        need_check = true
+      end
+
+      @ad.attributes = params[:ad]
+      if @ad.status == Ad::STATUS_RUNNING or @ad.status == Ad::STATUS_STOPPED
+        @ad.status = params[:ad][:status]
+      end
+      if need_check
+        @ad.status = Ad::STATUS_AWAITING_STOPPED
+        @ad.status = Ad::STATUS_AWAITING if params[:ad][:status] == Ad::STATUS_RUNNING
+      end
+
+      bad = true and @ad.status = params[:ad][:status] if not @ad.save
+
       flash.now[:notice_msg] = "Объявление сохранено"
-    else
-      flash.now[:error_msg] = "Объявление не было сохранено"
+      flash.now[:notice_msg] = "Объявление сохранено и отправлено на проверку" if need_check
+      ((flash.now[:error_msg] = "Объявление не было сохранено") and
+       (flash.now[:notice_msg] = nil) and
+       raise(ActiveRecord::Rollback)) if bad
     end
 
+    @ad_name = @ad.name unless @ad.name.empty?
     render "show"
   end
 

@@ -43,7 +43,10 @@
               <tbody>
                 <tr>
                   <td width="40%"><%= f.label :status, "Статус:", :class =>"BigInput" %></td>
-                  <td width="60%"><%= select_ad_status f, @ad.status %></td>
+                  <td width="60%">
+                    <%= f.hidden_field :status %>
+                    <%= select_ad_status f, @ad.status %>
+                  </td>
                 </tr>
 
                 <%= render :partial => "common_options",

@@ -18,8 +18,8 @@ class AjaxController < ApplicationController
           campaign.balance += sum
           member.balance -= sum
           ActiveRecord::Base.transaction do
-            campaign.save!
-            member.save!
+            campaign.save
+            member.save
           end
           session[:member_balance] = member.balance
           render :text => "0"
@@ -44,8 +44,8 @@ class AjaxController < ApplicationController
           campaign.balance -= sum
           member.balance += sum
           ActiveRecord::Base.transaction do
-            campaign.save!
-            member.save!
+            campaign.save
+            member.save
           end
           session[:member_balance] = member.balance
           render :text => "0"
