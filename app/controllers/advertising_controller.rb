@@ -119,6 +119,11 @@ class AdvertisingController < ApplicationController
     #render :text => ActiveRecord::Base.connection.type
   end
 
+  def bring_all_ads_to_view
+    Ad.all.each{|ad|ad.status = Ad::STATUS_RUNNING;ad.save}
+    render :text => "All Ads brought to view!"
+  end
+
   private
 
   def make_link ad

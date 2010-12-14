@@ -7,7 +7,7 @@ AdNetwork::Application.routes.draw do
   match "/get_ads(.:format)" => 'advertising#get_ads'
   match "/get_ads_detail" => 'advertising#get_ads_detail'
   match "/test_app" => 'advertising#test_app'
-
+  match "/advertising/bring_all_ads_to_view" => 'advertising#bring_all_ads_to_view'
 
   resources :campaigns do
     resources :ads
