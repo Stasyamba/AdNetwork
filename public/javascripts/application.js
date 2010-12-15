@@ -469,7 +469,7 @@ $(window).load(function(){
 
     $("#UploadImage").click(function(){
         $("#image_upload_form").submit();
-        return true;
+        return false;
     });
 
     //Buttons dispatching

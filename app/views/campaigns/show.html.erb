@@ -88,7 +88,7 @@
                 </tr>
                 <tr>
                   <td width="40%"><p>CTR</p></td>
-                  <td width="60%"><p><%= @campaign.ctr  %></p></td>
+                  <td width="60%"><p><%= ctr_percent(@campaign.ctr) if @campaign.ctr %></p></td>
                 </tr>
               </tbody>
             </table>
